@@ -1,0 +1,351 @@
+@charset "UTF-8";
+body{
+	font-family:  'NanumSquare', sans-serif; 
+	font-style: normal;
+	font-size: 20px;
+	line-height: 30px;
+	background:rgba(229, 229, 229, 0.4);
+	margin: 0px;
+}
+
+/*semantic tag*/
+#wrap {
+  /* min-height: 100vh;
+  position: relative;
+  width: 100%;  */
+  
+  /* height: auto;
+  min-height: 100%;
+  padding-bottom: 100px; */
+  
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+
+}
+
+header{
+	background:white;
+	height: 290px;
+	width:1920px;
+	padding:0px;
+	margin:0px;
+	
+}
+
+#navmainWrap {
+    display: flex;
+    flex-direction: row;
+}
+
+nav{
+	
+	display: flex;
+	width:400px;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+	font-weight: bold;
+	
+}
+
+main{
+	
+	display: flex;
+	width:1220px;
+	height: 100%;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 50px;
+}
+
+footer{ 
+	margin-top: 100px;
+	background:#525252;
+	height: 100px; 
+	width: 1920px;
+	bottom: 0px;
+	/* position: relative; */
+	display: flex;
+}
+
+
+
+
+/*----------header---------*/
+
+
+#logo{
+	display: inline-block;
+	margin-left: 350px;
+	margin-top: 60px;
+	/* position: absolute;
+	top: 50px;
+	left: 400px;  */
+	
+}
+/*상단 메뉴들의 배치*/
+#menu{
+	display : inline-block;
+	margin-left: 130px;
+}
+/*두 메뉴 탭의 위치*/
+.menutab{
+	display : inline-block;
+	margin : 20px;
+	font-weight: bold;
+}
+
+
+.menutab_content{
+	list-style: none;
+	display: none; 
+} 
+
+
+/*a 태그에 직접 속성 지정해야 함*/
+
+a{	
+	text-decoration:none;
+}
+a:link {
+	color: black;
+}  	
+a:visited {
+	color: black;
+} 
+a:hover{
+	color: #FF1493;
+}
+
+
+
+#login{
+	position: absolute;
+	left:1380px;
+	top:50px;
+}
+
+#join{
+	position: absolute;
+	left:1500px;
+	top:50px;
+}
+
+#loginSet{
+	display:inline-block;
+	position: absolute;
+	left:1400px;
+	top:50px;
+	font-size:16px;
+	font-weight: 500;
+	
+}
+
+
+span>a:link {
+	font-size:10pt;
+	color: rgba(0, 0, 0, 0.63);
+
+
+}  	
+span>a:visited {
+	font-size:10pt;
+	color: rgba(0, 0, 0, 0.63);
+
+
+}  	
+span>a:hover {
+	font-size:10pt;
+	color: #FF1493;
+}
+
+
+#first_hr{
+   margin-top: 20px;
+	border: 1px solid #E5E5E5;
+}
+
+.search{
+	display:flex;
+	justify-content:center;
+	margin:10px;
+}
+#searchBar{
+	width: 900px;
+	height: 45px;
+	padding-right: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	
+	font-size:20px;
+	border-radius:10px;
+	border: 3px solid #ADAAAA;
+}
+
+#searchbtn{
+	border:none;
+	background:white;
+}
+
+#pink_hr{
+
+	width: 1920px;
+	height: 3px;
+	background-color: #FF008E;
+	border:0px;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+/*----------nav---------*/
+/* .tab_title{
+	position: absolute;
+	top:250px;
+	left:100px;
+	list-style:none;
+	font-weight: bold;
+} */
+
+.tab_title li{
+	background: none;
+	display: block;
+	cursor: pointer;
+	width:200px;
+	margin: 10px;
+}
+
+.tab_title li:hover{
+	background: #ededed;
+ 	color: #222;
+}
+
+
+.tab_title li.on{
+  background: #ededed;
+  color: #222;
+  width: 200px;
+}
+
+
+/*단 나누기*/
+#separate{
+	border:solid 1px black;
+	height: 600px;
+	margin-top: 50px;	
+}
+
+
+
+/*----------main---------*/
+
+
+
+
+/*tab content*/
+.tab_content{
+	/* position: absolute;
+	top: 250px;
+	left: 450px; */
+	
+	margin: 50px;
+} 
+
+div span{
+	font-weight: bold;
+}
+.boardList{
+	
+	border-collapse : collapse;
+	width: 1200px;
+	margin-top: 20px;
+	padding : 5px;
+	
+	background: #FFFFFF;
+	text-align: center;
+	border-bottom: 1px solid #ADAAAA;
+	
+	
+}
+
+.boardList th{
+	border-bottom: 3px solid #ADAAAA;
+	text-align: center;
+	
+}
+
+.boardList .t1{
+	text-align: left;
+	padding-left : 10px;
+	
+}
+
+
+
+
+
+
+/*회원탈퇴*/
+/*#memberDelete{
+	position: absolute;
+	top:800px;
+	left:500px;
+	font-size : 16px;
+} */
+
+div>a:link {
+	font-size:10pt;
+	color: rgba(0, 0, 0, 0.63);
+
+
+}  	
+div>a:visited {
+	font-size:10pt;
+	color: rgba(0, 0, 0, 0.63);
+
+
+}  	
+div>a:hover {
+	font-size:10pt;
+	color: #FF1493;
+}
+
+#btn{
+	background: #16003B;
+	color: white;
+	
+	/* position : absolute;
+	top: 950px;
+	left: 1550px;  */
+	float : right; 
+	margin: 20px;
+	
+	width: 100px;
+	height: 35px;
+	border-radius: 10px;
+}
+
+
+/* 페이징 */
+#paging{
+	text-align: center;
+	width: 200px;
+	height: 40px;
+}
+
+
+#searchK{
+	text-align: center;
+	width: 200px;
+	height: 40px;
+}
+
+/* footer */
+#footer_Content{
+	font-size: 12px;
+	margin-left: 400px;
+}
+
+
