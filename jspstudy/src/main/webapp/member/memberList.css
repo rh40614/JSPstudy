@@ -1,0 +1,37 @@
+@charset "UTf-8";
+
+div{
+	border-radius:30px;
+}
+table{
+	width: 700px;
+	border-collapse: collapse;
+}
+
+#listHead{
+	border-radius:30px;
+	background-color: #06113C;
+	height: 50px;
+	font-size : 150%;
+	color: #F7F5F2;
+}
+
+tr:hover {
+	background-color: #EEEEEE;
+	cursor: pointer;
+}
+th,td{
+	padding : 5px 10px 10px ;
+	text-align: center;
+}
+.th{
+	border-right: 1px solid #06113C;
+	border-width: 5px;
+}
+body{
+	margin :20%;
+	margin-top :10%;
+	height :100%;
+	font-family: 'Jua', sans-serif;
+	background :#F7F5F2;
+}

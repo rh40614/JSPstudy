@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+body{
+	margin :auto;
+	margin-top :10%;
+	height :100%;
+	font-family: 'Jua', sans-serif;
+	background :#F7F5F2;
+}
+
+h1{
+	font-size :300%;
+	text-align: center;
+}
+
+div {
+	display: block; 
+	text-align:center;
+}
+.bt{
+	background-color :#FF8C32;
+	border:none;
+	border-radius: 10px; 
+	width: 80px;
+	height: 30px;
+	font-family: 'Jua', sans-serif;
+	font-size: 1rem;
+	text-align:center;
+	padding: 5px;
+	
+}	
