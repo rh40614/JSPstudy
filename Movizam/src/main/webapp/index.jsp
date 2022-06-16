@@ -9,12 +9,10 @@
 
 
 <script>
-<!--main으로 넘어가게 만들기1111   -->
-/* 데이터를 가지고 jsp로 바로 이동 할 수없으므로 다른 가상 주소 만들기 분리 123435*/
+<!--main으로 넘어가게 만들기-->
+/* 데이터를 가지고 jsp로 바로 이동 할 수없으므로 다른 가상 주소 만들기 분리 */
 location.href="<%=request.getContextPath()%>/main/main.do"
-수정
-test
-test2
+
 </script>
 </head>
 <body>
