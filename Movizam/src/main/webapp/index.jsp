@@ -14,6 +14,7 @@
 location.href="<%=request.getContextPath()%>/main/main.do"
 수정
 test
+test2
 </script>
 </head>
 <body>
