@@ -188,11 +188,12 @@ public class BoardDao {
 			str = "and boardWriter like ?";
 		}
 		
-		String sql ="select * from ("
-				+ " select rownum as rnum, A.* from ("
-				+ "select * from board where boardDelYN ='N' and boardType='free' "+ str +"order by bidx desc) A"
-				+ ") B where rnum between ? and ? ";
+//		String sql ="select * from ("
+//				+ " select rownum as rnum, A.* from ("
+//				+ "select * from board where boardDelYN ='N' and boardType='free' "+ str +"order by bidx desc) A"
+//				+ ") B where rnum between ? and ? ";
 		
+		String sql = "select * from board where boardDelYN ='N' and boardType='free' "+ str +"order by bidx desc limit ?,? ";
 		
 		
 		try {
@@ -210,7 +211,7 @@ public class BoardDao {
 			bv = new BoardVo();
 			//게시물 목록 한줄에 나올 데이터
 			bv.setBidx(rs.getInt("bidx"));
-			bv.setScreenBidx(rs.getInt("rnum"));
+			//bv.setScreenBidx(rs.getInt("rnum"));
 			bv.setBoardTitle(rs.getString("boardTitle"));
 			bv.setBoardWriter(rs.getString("boardWriter"));
 			bv.setBoardWdate(rs.getString("boardWdate"));
@@ -654,10 +655,7 @@ public class BoardDao {
 		
 				
 		//BIDX 순서말고 조회수 기준으로 나열하고 ROWNUM으로 가져오기	
-		String sql ="select * from ("
-				+ " select rownum as rnum, A.* from ("
-				+ " select * from board where boardDelYN ='N' "+ str +"order by boardHit desc ) A" 	
-				+ " ) B where rnum between ? and ? ";
+		String sql =" select * from board where boardDelYN ='N' "+ str +"order by boardHit desc limit ?, ? ";
 		
 		
 		try {
@@ -716,10 +714,7 @@ public class BoardDao {
 			
 					
 			//BIDX 순서말고 조회수 기준으로 나열하고 ROWNUM으로 가져오기	
-			String sql ="select * from ("
-					+ " select rownum as rnum, A.* from ("
-					+ " select * from board where boardDelYN ='N' "+ str +"order by boardLike desc) A" 	
-					+ " ) B where rnum between ? and ? ";
+			String sql =" select * from board where boardDelYN ='N' "+ str +"order by boardLike desc limit ?, ? ";
 					
 			try {
 				pstmt = conn.prepareStatement(sql);
@@ -755,7 +750,7 @@ public class BoardDao {
 				
 			}finally {
 				try {
-					rs.close();
+					//rs.close();
 					pstmt.close();
 					
 				} catch (SQLException e) {
@@ -786,10 +781,12 @@ public class BoardDao {
 				str = "and boardWriter like ?";
 			}
 			
-			String sql ="select * from ("
-					+ " select rownum as rnum, A.* from ("
-					+ "select * from board where boardDelYN ='N' and boardType='film' "+ str +"order by bidx desc) A"
-					+ ") B where rnum between ? and ? ";
+//			String sql ="select * from ("
+//					+ " select rownum as rnum, A.* from ("
+//					+ "select * from board where boardDelYN ='N' and boardType='film' "+ str +"order by bidx desc) A"
+//					+ ") B where rnum between ? and ? ";
+
+			String sql ="select * from board where boardDelYN ='N' and boardType='film' "+ str +"order by bidx desc  limit ?, ? ";
 			
 			try {
 				pstmt = conn.prepareStatement(sql);

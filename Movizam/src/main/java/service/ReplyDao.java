@@ -36,8 +36,8 @@ public class ReplyDao {
 		String sql1= " insert into reply(REPLYWRITER, REPLYCONTENT,REPLYWDATE,REPLYIP,ORIGINRIDX,DEPTH,LEVEL_,MIDX,BIDX) "
 				+ "values(?, ?, now(), ?, 0, 0, 0, ?, ?)";
 		
-		String sql2 ="select ridx from reply where originridx=0;";
-		String sql3 ="update reply set originridx = ? ridx=?";
+		String sql2 ="select ridx from reply where originridx= 0;";
+		String sql3 ="update reply set originridx = ? where ridx=?";
 		
 		
 		try {
@@ -52,8 +52,8 @@ public class ReplyDao {
 			
 			pstmt = conn.prepareStatement(sql2);
 			rs = pstmt.executeQuery();
-				
-				if(rs.next()) {
+				//동시에 댓글을 작성할 수도 있으니까 while
+				while(rs.next()) {
 					pstmt = conn.prepareStatement(sql3);
 					pstmt.setInt(1, rs.getInt("ridx"));
 					pstmt.setInt(2, rs.getInt("ridx"));
@@ -92,7 +92,7 @@ public class ReplyDao {
 //				+ ") B  WHERE rnum  BETWEEN ? AND ?";  //1~15 씩넘어오게 하기
 		
 		
-		String sql ="SELECT * FROM REPLY WHERE DELYN='N' and bidx=? ORDER BY ORIGINRIDX desc, depth ASC  BETWEEN ? AND ?";
+		String sql ="SELECT * FROM REPLY WHERE DELYN='N' and bidx=? ORDER BY ORIGINRIDX desc, depth ASC  limit ?, ?";
 		try{	
 			
 			pstmt =conn.prepareStatement(sql);
@@ -128,7 +128,7 @@ public class ReplyDao {
 			e.printStackTrace();
 		}finally{
 			try{
-				rs.close();
+				//rs.close();
 				pstmt.close();
 				conn.close();
 			}catch(Exception e){
@@ -324,7 +324,7 @@ public class ReplyDao {
 			String sql="SELECT * FROM ("
 					+ "SELECT ROWNUM AS rnum, A.* FROM ("
 					+ "SELECT * FROM REPLY WHERE DELYN='N' "+str+" ORDER BY ORIGINRIDX desc, depth ASC) A" 
-					+ ") B WHERE rnum  BETWEEN ? AND ?";  //1~15 씩넘어오게 하기
+					+ ") B WHERE rnum  limit ?, ?";  //1~15 씩넘어오게 하기
 			
 			try{	
 				
@@ -385,10 +385,7 @@ public class ReplyDao {
 			}
 					
 					
-			String sql="SELECT * FROM ("
-					+ "SELECT ROWNUM AS rnum, A.* FROM ("
-					+ "SELECT * FROM REPLY WHERE DELYN='N' and midx=? "+str+" ORDER BY ORIGINRIDX desc, depth ASC) A" 
-					+ ") B WHERE rnum  BETWEEN ? AND ?";  //1~15 씩넘어오게 하기
+			String sql="SELECT * FROM REPLY WHERE DELYN='N' and midx=? "+str+" ORDER BY ORIGINRIDX desc, depth ASC  limit ?,?";  //1~15 씩넘어오게 하기
 			
 			try{	
 						

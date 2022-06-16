@@ -97,7 +97,7 @@ public class MemberDao {
 			e.printStackTrace();
 		}
 		
-		System.out.println("요요");
+		System.out.println("로그인 메서드 실행");
 		
 		return mv;
 	}
@@ -108,7 +108,7 @@ public class MemberDao {
 		int value = 0;
 				
 		String sql = "INSERT INTO LOGIN(LOGINIP,MIDX,LOGINDATE) "
-					+ " VALUES(?, ?, now()";
+					+ " VALUES(?, ?, now() ";
 				
 				
 		try {
@@ -123,7 +123,7 @@ public class MemberDao {
 					
 			e.printStackTrace();
 		}
-		System.out.println("요");
+		System.out.println("로그인 정보 입력 메서드");
 		return value;
 	}
 
@@ -157,7 +157,7 @@ public class MemberDao {
 		int value=0;
 		
 		
-		String sql ="update (select* FROM member a inner join login b on a.midx=b.midx)"
+		String sql ="update (select* FROM member a inner join login b on a.midx=b.midx) A"
 					+ " LOGINFAILCOUNT set LOGINFAILCOUNT = LOGINFAILCOUNT +1"
 					+ " loginDate = now()" 
 					+ " where memberId=?";
@@ -180,7 +180,7 @@ public class MemberDao {
 	 public int clearLoginFailCount(String memberId) {
 		 int value=0;
 		 
-		  String sql ="update (select* FROM member a inner join login b on a.midx=b.midx)"
+		  String sql ="update (select* FROM member a inner join login b on a.midx=b.midx) A"
 		  			+ "LOGINFAILCOUNT set LOGINFAILCOUNT='0'"
 					+ ", loginDate = now()"
 					+ ", isLock = 'N'"
@@ -208,7 +208,7 @@ public class MemberDao {
 	 public int loginLock(String memberId) {
 		 int value=0;
 		 
-		 String sql = "update (select* FROM member a inner join login b on a.midx=b.midx)"
+		 String sql = "update (select* FROM member a inner join login b on a.midx=b.midx) A"
 		 			+ "set isLock ='Y' "
 		 			+ "where delYN='N' "
 		 			+ "AND memberId = ? "
@@ -350,7 +350,7 @@ public class MemberDao {
 			String sql="select * from ("
 					+ "select  rownum as rnum, A.* from ("
 					+ "select * from member where delYN ='N'" +str+" order by midx desc) A "
-					+ ") where rnum between ? and ?";
+					+ ") B where rnum between ? and ?";
 			
 			try {
 				pstmt = conn.prepareStatement(sql);

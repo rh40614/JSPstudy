@@ -64,10 +64,7 @@ public class FilmDao {
 			str = " and filmName like ? ";		
 		}
 		
-		String sql="select * from ("
-				+ " select rownum as rnum, A.* from ("
-				+ " select * from film where delYN = 'N' "+str+" order by fidx desc) A "
-				+ ") B where rnum between ? and ?";
+		String sql= "select * from film where delYN = 'N' "+str+" order by fidx desc limit ?, ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);	
