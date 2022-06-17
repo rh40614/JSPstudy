@@ -100,7 +100,7 @@ public class MemberDao {
 		System.out.println("로그인 메서드 실행");
 		
 		return mv;
-	}
+	}  
 	
 	//로그인 정보 입력
 	public int loginInfoInsert(String memberIp, int midx) {
