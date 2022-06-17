@@ -11,6 +11,7 @@
 <script>
 <!--main으로 넘어가게 만들기-->
 /* 데이터를 가지고 jsp로 바로 이동 할 수없으므로 다른 가상 주소 만들기 분리 */
+/* git 사용해보기 */
 location.href="<%=request.getContextPath()%>/main/main.do"
 
 </script>
