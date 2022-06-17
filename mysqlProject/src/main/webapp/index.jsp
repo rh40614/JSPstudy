@@ -19,7 +19,7 @@ session.setAttribute("saveUrl", request.getRequestURI());
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>홈페이지</title>
+	<title>홈페이지d</title>
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/css/basic.css">
 	<script src="<%=request.getContextPath()%>/js/jquery-3.6.0.min.js"></script>
 	<style type="text/css">@import url("<%=request.getContextPath()%>/css/index.css");</style>
